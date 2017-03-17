@@ -2,7 +2,7 @@
 
 module RuboCop
   module Cop
-    module BrainFuck
+    module Brainfuck
       # This cop check brainfuck program.
       class Interpreter < Cop
         MSG = 'Message of BrainFuck'.freeze
