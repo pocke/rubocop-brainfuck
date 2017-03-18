@@ -5,7 +5,7 @@ module RuboCop
     module Brainfuck
       # This cop check brainfuck program.
       class Interpreter < Cop
-        MSG = 'Message of BrainFuck'.freeze
+        MSG = 'Interpreting the brainfuck code...'.freeze
 
         def_node_matcher :program?, <<-PATTERN
           (class _ (const {nil cbase} :BrainFuck) $_body)
