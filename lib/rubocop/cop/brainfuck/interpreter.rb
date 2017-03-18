@@ -79,7 +79,16 @@ module RuboCop
                 str.inspect
               )
             when ','
-              # raise 'TODO'
+              char = stdin.str_content.ord rescue 0
+              memory_value[pointer_value] = char
+              corrector.replace(
+                memory.loc.expression,
+                memory_value.inspect
+              )
+              corrector.replace(
+                stdin.loc.expression,
+                String(stdin.str_content[1..-1]).inspect
+              )
             when '['
               v = memory_value[pointer_value] || 0
               if v == 0

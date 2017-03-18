@@ -26,4 +26,24 @@ describe RuboCop::Cop::Brainfuck::Interpreter do
 
     expect(new_source).to be_include 'Hello, world!'
   end
+
+  context 'Standard input/output' do
+    let(:source){<<-END}
+      class Program < BrainFuck
+        PC = 0
+        Code = <<-EOS
+          ,.,.,.
+        EOS
+        Memory = []
+        Stdout = ''
+        Stdin = 'abc'
+        Pointer = 0
+      end
+    END
+
+    it "echo stdio" do
+      new_source = autocorrect_source_with_loop(cop, source)
+      expect(new_source).to be_include 'Stdout = "abc"'
+    end
+  end
 end
