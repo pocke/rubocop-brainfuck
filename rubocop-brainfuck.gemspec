@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Masataka Kuwabara"]
   spec.email         = ["kuwabara@pocke.me"]
 
-  spec.summary       = %q{}
-  spec.description   = %q{}
+  spec.summary       = %q{A Brainfuck interpreter implementation on RuboCop}
+  spec.description   = %q{A Brainfuck interpreter implementation on RuboCop}
   spec.homepage      = "https://github.com/pocke/rubocop-brainfuck"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
