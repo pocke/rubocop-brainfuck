@@ -1,8 +1,6 @@
 # Rubocop::Brainfuck
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/brainfuck`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Brainfuck interpreter implementation on RuboCop
 
 ## Installation
 
@@ -22,7 +20,40 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Hello world
+
+```ruby
+# test.rb
+class Program < BrainFuck
+  PC = 0
+  Code = <<-EOS
+    +++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-.
+    ------------.<++++++++.--------.+++.------.--------.>+.
+  EOS
+  Memory = []
+  Stdout = ''
+  Stdin = ''
+  Pointer = 0
+end
+```
+
+
+```sh
+$ rubocop -a -r rubocop/brainfuck --only Brainfuck/Interpreter
+$ cat test.rb
+# test.rb
+class Program < BrainFuck
+  PC = 119
+  Code = <<-EOS
+    +++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-.
+    ------------.<++++++++.--------.+++.------.--------.>+.
+  EOS
+  Memory = [0, 72, 100, 33]
+  Stdout = "Hello, world!"
+  Stdin = ''
+  Pointer = 3
+end
+```
 
 ## Development
 
@@ -32,5 +63,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Masataka Kuwabara/rubocop-brainfuck.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pocke/rubocop-brainfuck.
 
